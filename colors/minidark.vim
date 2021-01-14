@@ -1,9 +1,9 @@
 " vim:fdm=marker
 " Vim Color File
-" Name:       onedark.vim
-" Maintainer: https://github.com/joshdick/onedark.vim/
+" Name:       minidark.vim
+" Maintainer: https://github.com/markx/minidark.vim/
 " License:    The MIT License (MIT)
-" Based On:   https://github.com/MaxSt/FlatColor/
+" Based On:   https://github.com/joshdick/onedark.vim
 
 " A companion [vim-airline](https://github.com/bling/vim-airline) theme is available at: https://github.com/joshdick/airline-onedark.vim
 
@@ -51,7 +51,7 @@ endif
 
 set t_Co=256
 
-let g:colors_name="onedark"
+let g:colors_name="minidark"
 
 " Set to "256" for 256-color terminals, or
 " set to "16" to use your terminal emulator's native colors
@@ -130,7 +130,7 @@ endfunction
 
 " Color Variables {{{
 
-let s:colors = onedark#GetColors()
+let s:colors = minidark#GetColors()
 
 let s:red = s:colors.red
 let s:dark_red = s:colors.dark_red
@@ -166,41 +166,45 @@ let g:terminal_ansi_colors = [
 
 " Syntax Groups (descriptions and ordering from `:h w18`) {{{
 
-call s:h("Comment", { "fg": s:comment_grey, "gui": "italic", "cterm": "italic" }) " any comment
-call s:h("Constant", { "fg": s:cyan }) " any constant
-call s:h("String", { "fg": s:green }) " a string constant: "this is a string"
 call s:h("Character", { "fg": s:green }) " a character constant: 'c', '\n'
+call s:h("String", { "fg": s:green }) " a string constant: "this is a string"
+call s:h("Constant", { "fg": s:cyan }) " any constant
 call s:h("Number", { "fg": s:dark_yellow }) " a number constant: 234, 0xff
-call s:h("Boolean", { "fg": s:dark_yellow }) " a boolean constant: TRUE, false
 call s:h("Float", { "fg": s:dark_yellow }) " a floating point constant: 2.3e10
-call s:h("Identifier", { "fg": s:red }) " any variable name
+call s:h("Boolean", { "fg": s:dark_yellow }) " a boolean constant: TRUE, false
+call s:h("Comment", { "fg": s:comment_grey, "gui": "italic", "cterm": "italic" }) " any comment
+call s:h("Todo", { "fg": s:purple }) " anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+
 call s:h("Function", { "fg": s:blue }) " function name (also: methods for classes)
-call s:h("Statement", { "fg": s:purple }) " any statement
-call s:h("Conditional", { "fg": s:purple }) " if, then, else, endif, switch, etc.
-call s:h("Repeat", { "fg": s:purple }) " for, do, while, etc.
-call s:h("Label", { "fg": s:purple }) " case, default, etc.
-call s:h("Operator", { "fg": s:purple }) " sizeof", "+", "*", etc.
+call s:h("Identifier", { "fg": s:red }) " any variable name
+
+call s:h("Special", { "fg": s:blue }) " any special symbol
+call s:h("SpecialChar", {}) " special character in a constant
+call s:h("SpecialComment", { "fg": s:comment_grey }) " special things inside a comment
 call s:h("Keyword", { "fg": s:red }) " any other keyword
+call s:h("Error", { "fg": s:red }) " any erroneous construct
 call s:h("Exception", { "fg": s:purple }) " try, catch, throw
-call s:h("PreProc", { "fg": s:yellow }) " generic Preprocessor
+
+
 call s:h("Include", { "fg": s:blue }) " preprocessor #include
-call s:h("Define", { "fg": s:purple }) " preprocessor #define
+call s:h("Label", { "fg": s:purple }) " case, default, etc.
 call s:h("Macro", { "fg": s:purple }) " same as Define
 call s:h("PreCondit", { "fg": s:yellow }) " preprocessor #if, #else, #endif, etc.
-call s:h("Type", { "fg": s:yellow }) " int, long, char, etc.
+call s:h("PreProc", { "fg": s:yellow }) " generic Preprocessor
+call s:h("Statement", { "fg": s:purple }) " any statement
 call s:h("StorageClass", { "fg": s:yellow }) " static, register, volatile, etc.
 call s:h("Structure", { "fg": s:yellow }) " struct, union, enum, etc.
+call s:h("Type", { "fg": s:yellow }) " int, long, char, etc.
 call s:h("Typedef", { "fg": s:yellow }) " A typedef
-call s:h("Special", { "fg": s:blue }) " any special symbol
-call s:h("SpecialChar", { "fg": s:dark_yellow }) " special character in a constant
 call s:h("Tag", {}) " you can use CTRL-] on this
-call s:h("Delimiter", {}) " character that needs attention
-call s:h("SpecialComment", { "fg": s:comment_grey }) " special things inside a comment
 call s:h("Debug", {}) " debugging statements
-call s:h("Underlined", { "gui": "underline", "cterm": "underline" }) " text that stands out, HTML links
+call s:h("Delimiter", {}) " character that needs attention
+call s:h("Operator", {}) " sizeof", "+", "*", etc.
+call s:h("Repeat", {}) " for, do, while, etc.
+call s:h("Conditional", {}) " if
 call s:h("Ignore", {}) " left blank, hidden
-call s:h("Error", { "fg": s:red }) " any erroneous construct
-call s:h("Todo", { "fg": s:purple }) " anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+
+call s:h("Underlined", { "gui": "underline", "cterm": "underline" }) " text that stands out, HTML links
 
 " }}}
 
